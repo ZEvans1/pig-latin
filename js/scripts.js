@@ -29,12 +29,24 @@ function analysis(letters) {
   var first = letters[0];
   console.log(first);
 
+  //this determines what the first character is. Example: vowel, consonant, other
   if (vowels.indexOf(first) !== -1) {
     alert("This is a vowel");
-  } else {
-    alert("This is not a vowel");
-  }
+    } else if (consonants.indexOf(first) !== -1) {
+    //alert("This is a consonant");
+    } else {
+    alert("This is undefined for us right now");
+    };
 
-  // var letters = sentences;
-  // if ()
+  var firstlets = [];
+  for (i = 0; i < letters.length; i++) {
+
+    if (consonants.indexOf(letters[i]) !== -1) {
+      firstlets.push(letters[i]);
+    } else if (vowels.indexOf(letters[i]) !== -1 ) {
+      break;
+    }
+
+  };
+console.log(firstlets);
 };

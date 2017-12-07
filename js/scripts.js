@@ -3,7 +3,7 @@ $(document).ready(function() {
     event.preventDefault();
     var userInput = $("#input").val().toLowerCase();
     var letters = userInput.split('');
-    console.log(letters);
+    //console.log(letters);
     analysis(letters);
   });
 });
@@ -13,40 +13,48 @@ $(document).ready(function() {
 function analysis(letters) {
   var numbers = "0987654321".split('');
   var vowels = "aeiou".split('');
-  var consonants = "bcdfghjklmnpqrstvwxyz".split('');
-
-  //this for loop is for checking if numbers are in the input
-  for (i=0; i < letters.length; i++) {
-    char = letters[i];
-    if (numbers.indexOf(char) !== -1){
-      alert("You entered a number");
-      return false
-    } else {
-      console.log(letters);
-    };
-  };
-  //this assigns the first letter to a variable only if it passes the above for loop
-  var first = letters[0];
-  console.log(first);
-
-  //this determines what the first character is. Example: vowel, consonant, other
-  if (vowels.indexOf(first) !== -1) {
-    alert("This is a vowel");
-    } else if (consonants.indexOf(first) !== -1) {
-    //alert("This is a consonant");
-    } else {
-    alert("This is undefined for us right now");
-    };
-
+  var consonants = "bcdfghjklmnprstvwxyz".split('');
   var firstlets = [];
-  for (i = 0; i < letters.length; i++) {
+  var consecutive = [];
 
-    if (consonants.indexOf(letters[i]) !== -1) {
-      firstlets.push(letters[i]);
-    } else if (vowels.indexOf(letters[i]) !== -1 ) {
-      break;
-    }
-
+  //numbers
+  for (i=0; i < letters.length; i++) {
+      char = letters[i];
+      if (numbers.indexOf(char) !== -1){
+        alert("You entered a number");
+        return false
+      } else {
+      //  console.log(letters);
+      };
   };
-console.log(firstlets);
+
+    //double consonants
+    for (i = 0; i < letters.length; i++) {
+      if (consonants.indexOf(letters[i]) !== -1) {
+        consecutive.push(letters[i]);
+      } else if (vowels.indexOf(letters[i]) !== -1 ) {
+        break;
+      }
+    };
+
+  // q's and u's
+    if (letters[0] === ("q")) {
+        firstlets = letters.slice(0,2);
+        letters.splice(0,2);
+      } else if (letters[1] === ("q") && consonants.indexOf(letters[0]) !== -1) {
+        firstlets = letters.slice(0,3);
+        letters.splice(0,3);
+      } else if (vowels.indexOf(letters[0] !== -1)) {
+        firstlets = letters.slice(0,1);
+        letters.splice(0,1);
+      }
+        console.log("hello");
+
+
+
+  console.log(letters);
+  console.log(firstlets);
+  console.log(consecutive);
+
+  // var first = letters[0];
 };

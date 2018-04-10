@@ -1,12 +1,10 @@
-# _Leap Year_
+# _Pig Latin_
 
-#### _Lets user know if the year they entered is a leap year or not., Dec. 6, 2017_
-
-#### By _**{List of contributors}**_
+#### _Converts words to pig latin._
 
 ## Description
 
-_This is an HTML page that uses JavaScript to determine if a year is a leap year._
+_This is an HTML page that uses JavaScript to convert words to pig latin_
 
 
 ### Specs
